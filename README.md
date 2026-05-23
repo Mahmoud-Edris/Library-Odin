@@ -16,7 +16,7 @@ I made this project for applying state management and using constructors
 - [] Add Priority System
 - [] Clean up the code
 - [] Better UI
-- [] Use Classes instead of Constructors
+- [x] Use Classes instead of Constructors
 - [] Use Tailwind instead of CSS
 
 ### Built with

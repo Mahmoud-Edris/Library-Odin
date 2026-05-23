@@ -2,19 +2,21 @@ let library = [];
 const container = document.querySelector(".container");
 const addButton = document.querySelector(".add-button");
 const counter = document.querySelector(".counter");
-function Book(title, author, pages) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.id = crypto.randomUUID();
-  this.status = "Unread";
+
+class Book {
+  constructor(title, author, pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.id = crypto.randomUUID();
+    this.status = "Unread";
+  }
+  toggleButton() {
+    this.status = this.status === "Read" ? "Unread" : "Read";
+    return this.status;
+  }
 }
 
-Book.prototype.toggleButton = function () {
-  if (this.status === "Read") this.status = "Unread";
-  else this.status = "Read";
-  return this.status;
-};
 
 const addBook = (t, a, p) => {
   let newBook = new Book(t, a, p);
@@ -52,9 +54,6 @@ addButton.addEventListener("click", (e) => {
   } else {
     addBook(title.value, author.value, pages.value);
     showBooks(library);
-    title.value = "";
-    author.value = "";
-    pages.value = "";
   }
 });
 
