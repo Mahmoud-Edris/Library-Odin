@@ -2,7 +2,6 @@ let library = [];
 const container = document.querySelector(".container");
 const addButton = document.querySelector(".add-button");
 const counter = document.querySelector(".counter");
-
 class Book {
   constructor(title, author, pages) {
     this.title = title;
@@ -16,7 +15,6 @@ class Book {
     return this.status;
   }
 }
-
 
 const addBook = (t, a, p) => {
   let newBook = new Book(t, a, p);
@@ -54,6 +52,9 @@ addButton.addEventListener("click", (e) => {
   } else {
     addBook(title.value, author.value, pages.value);
     showBooks(library);
+    title.value = "";
+    author.value = "";
+    pages.value = "";
   }
 });
 
